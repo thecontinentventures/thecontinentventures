@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://thecontinentventures.github.io/thecontinentventures/sitemap.xml
