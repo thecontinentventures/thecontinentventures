@@ -105,6 +105,12 @@
             transition: 0.3s;
         }
 
+        /* Styling the dropdown options to be white */
+        select.form-control option {
+            background-color: var(--primary-green);
+            color: white;
+        }
+
         .form-control:focus {
             background: rgba(255, 255, 255, 0.1);
             border-color: var(--accent-gold);
@@ -215,6 +221,9 @@
                         <div class="row g-5">
                             <div class="col-lg-7">
                                 <form action="https://formspree.io/f/xykbaoel" method="POST">
+                                    
+                                    <input type="hidden" name="_next" value="https://thecontinentventures.github.io/thecontinentventures/thank-you.html">
+                                    
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3">
@@ -229,14 +238,23 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="mb-3">
                                         <label class="form-label">Subject</label>
-                                        <input type="text" name="subject" class="form-control" placeholder="What is this regarding?" required>
+                                        <select name="subject" class="form-control" required>
+                                            <option value="" disabled selected>Select an option</option>
+                                            <option value="General Inquiry">General Inquiry</option>
+                                            <option value="Partnership Proposal">Partnership Proposal</option>
+                                            <option value="Donation Question">Donation Question</option>
+                                            <option value="Volunteer Opportunity">Volunteer Opportunity</option>
+                                        </select>
                                     </div>
+
                                     <div class="mb-4">
                                         <label class="form-label">Message</label>
                                         <textarea name="message" class="form-control" rows="6" placeholder="Write your message here..." required></textarea>
                                     </div>
+                                    
                                     <button type="submit" class="btn btn-gold w-100">Send Your Message</button>
                                 </form>
                             </div>
