@@ -1,84 +1,146 @@
 ---
 layout: default
-title: Our Story
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <style>
-        :root { --primary-green: #0a2f10; --accent-gold: #d4af37; --off-white: #ffffff; }
-        body { background-color: var(--primary-green); color: var(--off-white); font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
-
-        /* --- Periodic Slide Animation --- */
-        @keyframes periodicSlide {
-            0% { transform: translateX(120%); opacity: 0; }
-            5% { transform: translateX(0); opacity: 1; }
-            95% { transform: translateX(0); opacity: 1; }
-            100% { transform: translateX(-120%); opacity: 0; }
+        :root {
+            --primary-green: #0a2f10;
+            --accent-gold: #d4af37;
+            --off-white: #ffffff;
         }
 
-        .updates-container {
+        body {
+            background-color: var(--primary-green);
+            color: var(--off-white);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            padding-top: 120px;
+        }
+
+        /* --- Header Section --- */
+        .post-header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 0 20px;
+        }
+
+        .post-category {
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .post-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: white;
+            max-width: 900px;
+            margin: 0 auto 20px;
+        }
+
+        .post-meta {
+            opacity: 0.6;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* --- Content Styling --- */
+        .post-main-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 25px 100px;
+            line-height: 1.9;
+            font-size: 1.15rem;
+        }
+
+        /* Markdown elements styling */
+        .post-main-content h2, .post-main-content h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-gold);
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+
+        .post-main-content p {
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .post-main-content img {
+            width: 100%;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            margin: 40px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .post-main-content blockquote {
+            border-left: 4px solid var(--accent-gold);
+            padding: 20px 30px;
+            background: rgba(212, 175, 55, 0.05);
+            font-style: italic;
+            border-radius: 0 15px 15px 0;
+            margin: 40px 0;
+        }
+
+        /* --- Footer Nav --- */
+        .post-navigation {
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 40px;
+            margin-top: 60px;
             display: flex;
-            gap: 20px;
-            overflow: hidden;
-            padding: 40px 0;
+            justify-content: space-between;
         }
 
-        .update-card-wrapper {
-            flex: 0 0 calc(50% - 10px); /* Shows two cards */
-            animation: periodicSlide 12s infinite ease-in-out;
-            opacity: 0;
+        .nav-link-post {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
-        /* Stagger the rhythm so they don't move exactly at once */
-        .update-card-wrapper:nth-child(2) {
-            animation-delay: 0.5s;
-        }
+        .nav-link-post:hover { opacity: 0.7; }
 
-        .update-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--accent-gold);
-            border-radius: 15px;
-            padding: 25px;
-            height: 100%;
-            transition: transform 0.3s;
-        }
-
-        .update-card:hover {
-            background: rgba(212, 175, 55, 0.1);
-        }
-
-        .update-tag { color: var(--accent-gold); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; }
-        .update-title { font-family: 'Playfair Display', serif; margin: 10px 0; font-size: 1.4rem; }
-        .btn-read { color: var(--accent-gold); text-decoration: none; font-weight: bold; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <main class="container py-5">
-        <div class="text-center mb-5">
-            <h1 style="font-family: 'Playfair Display', serif; color: var(--accent-gold);">Our Story</h1>
-            <p>Empowering the African child through Education, Nutrition, and Clean Water.</p>
-        </div>
-
-        <section class="mt-5">
-            <h2 class="text-center mb-4" style="font-family: 'Playfair Display', serif;">Latest From the Field</h2>
-            
-            <div class="updates-container">
-                {% for post in site.posts limit:4 %}
-                <div class="update-card-wrapper">
-                    <div class="update-card">
-                        <span class="update-tag">{{ post.date | date: "%b %d, %Y" }}</span>
-                        <h3 class="update-title">{{ post.title }}</h3>
-                        <p class="small opacity-75">{{ post.content | strip_html | truncatewords: 15 }}</p>
-                        <a href="{{ post.url | relative_url }}" class="btn-read">Read Update →</a>
-                    </div>
-                </div>
-                {% endfor %}
+    <article class="container">
+        <header class="post-header">
+            <span class="post-category">Field Update</span>
+            <h1 class="post-title">{{ page.title }}</h1>
+            <div class="post-meta">
+                Published on {{ page.date | date: "%B %d, %Y" }} • By {{ page.author | default: "The Continent Team" }}
             </div>
-        </section>
-    </main>
+        </header>
 
-    </body>
+        <div class="post-main-content">
+            {{ content }}
+            
+            <footer class="post-navigation">
+                {% if page.previous.url %}
+                <a class="nav-link-post" href="{{ page.previous.url | relative_url }}">
+                    <i class="fas fa-arrow-left me-2"></i> Previous Story
+                </a>
+                {% else %}
+                <div></div>
+                {% endif %}
+
+                <a class="nav-link-post" href="{{ '/story.html' | relative_url }}">Back to All Stories</a>
+
+                {% if page.next.url %}
+                <a class="nav-link-post" href="{{ page.next.url | relative_url }}">
+                    Next Story <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+                {% endif %}
+            </footer>
+        </div>
+    </article>
+
+</body>
 </html>
