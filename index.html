@@ -14,33 +14,19 @@
     <meta property="og:description" content="Your giving, their future. Supporting education and health for children across Africa.">
     <meta property="og:image" content="https://thecontinentventures.github.io/thecontinentventures/logo.jpg">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "NGO",
-      "name": "The Continent Ventures Foundation",
-      "url": "https://thecontinentventures.github.io/thecontinentventures/",
-      "logo": "https://thecontinentventures.github.io/thecontinentventures/logo.jpg",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Nairobi",
-        "addressCountry": "KE"
-      }
-    }
-    </script>
-
     <link rel="icon" type="image/jpeg" href="logo.jpg" sizes="any">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-green: #2e7d32;
-            --accent-gold: #fbbf24;
-            --deep-black: #0a0a0a;
-            --pure-white: #ffffff;
+            --primary-green: #1b5e20;
+            --light-green: #2e7d32;
+            --accent-gold: #c5a059;
+            --deep-black: #080808;
+            --off-white: #f8f9fa;
         }
 
         body, html {
@@ -49,144 +35,188 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--deep-black);
             overflow: hidden;
-            color: var(--pure-white);
+            color: var(--off-white);
         }
 
-        /* Enhanced Navbar */
+        /* --- Refined Glass Navbar --- */
         .navbar { 
-            background-color: rgba(0, 0, 0, 0.6) !important;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.4s ease;
-            padding: 15px 0;
+            background: rgba(8, 8, 8, 0.7) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 12px 0;
+            transition: all 0.5s ease;
         }
-        
-        .nav-link { font-weight: 600; margin: 0 10px; transition: color 0.3s ease; }
-        .text-green { color: var(--primary-green) !important; }
 
-        /* Modern Hero Slider */
-        .myHeroSlider { width: 100%; height: 100vh; position: absolute; top: 0; left: 0; }
-        .swiper-slide { position: relative; overflow: hidden; }
+        .navbar-brand {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            opacity: 1;
+            color: var(--accent-gold) !important;
+        }
+
+        /* --- Hero Slider Enhancements --- */
+        .myHeroSlider { width: 100%; height: 100vh; }
 
         .slide-bg-container {
             position: absolute;
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
             z-index: -1;
+            overflow: hidden;
         }
         
         .slide-bg-container::after {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 100%);
+            background: radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
         }
 
         .slide-bg {
             width: 100%; height: 100%; object-fit: cover;
-            transform: scale(1.1); transition: transform 8s ease;
+            transform: scale(1);
+            transition: transform 10s linear;
         }
         
-        .swiper-slide-active .slide-bg { transform: scale(1); }
+        /* Ken Burns Effect */
+        .swiper-slide-active .slide-bg { transform: scale(1.15); }
 
         .hero-content {
             z-index: 10;
             text-align: center;
-            padding: 0 20px;
-            max-width: 900px;
-            margin-top: 60px;
+            max-width: 1000px;
+            padding: 0 30px;
         }
 
         .hero-content h1 {
-            font-weight: 800;
-            font-size: calc(2.4rem + 3.5vw);
-            line-height: 1.1;
-            margin-bottom: 20px;
-            background: linear-gradient(to bottom, #ffffff, #e0e0e0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: calc(2.8rem + 4vw);
+            margin-bottom: 25px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
         }
 
         .hero-content p {
-            font-size: calc(1rem + 0.5vw);
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 45px;
+            font-size: calc(1.1rem + 0.3vw);
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
             opacity: 0;
             transform: translateY(30px);
         }
 
-        /* Call to Action Buttons */
-        .btn-green { 
-            background: var(--primary-green);
-            color: white; border: none; 
-            padding: 18px 45px;
-            font-weight: 800;
-            border-radius: 100px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        /* --- Buttons --- */
+        .btn-gold { 
+            background: var(--accent-gold);
+            color: #fff;
+            padding: 20px 50px;
+            font-weight: 700;
+            border-radius: 4px; /* Professional sharp-rounded edges */
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            box-shadow: 0 10px 30px rgba(46, 125, 50, 0.4);
-            text-decoration: none;
-            display: inline-block;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            transition: all 0.4s ease;
+            border: none;
+            box-shadow: 0 15px 35px rgba(197, 160, 89, 0.2);
         }
 
-        .btn-green:hover { 
-            background-color: #388e3c; 
-            transform: scale(1.05) translateY(-3px);
+        .btn-gold:hover {
+            background: #b18e4a;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(197, 160, 89, 0.4);
             color: white;
-            box-shadow: 0 15px 40px rgba(46, 125, 50, 0.6);
         }
 
         .btn-outline-white {
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-            padding: 16px 40px;
-            font-weight: 700;
-            border-radius: 100px;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(5px);
+            padding: 20px 45px;
+            border-radius: 4px;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
             margin-left: 15px;
-            transition: all 0.3s ease;
-            text-decoration: none;
+            transition: 0.4s;
         }
 
         .btn-outline-white:hover {
             background: white;
             color: black;
+            border-color: white;
         }
 
-        /* Animations */
-        .swiper-slide-active h1 { animation: fadeInUp 0.8s forwards 0.3s; }
-        .swiper-slide-active p { animation: fadeInUp 0.8s forwards 0.5s; }
-        .swiper-slide-active .btn-group-wrap { animation: fadeInUp 0.8s forwards 0.7s; }
+        /* --- Scroll Indicator --- */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0.6;
+        }
 
-        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        .mouse {
+            width: 20px; height: 35px;
+            border: 2px solid white;
+            border-radius: 20px;
+            position: relative;
+        }
 
-        /* Mission Ticker */
+        .mouse::before {
+            content: '';
+            width: 4px; height: 4px;
+            background: white;
+            position: absolute;
+            left: 50%; top: 8px;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            animation: scrollDown 2s infinite;
+        }
+
+        @keyframes scrollDown {
+            0% { opacity: 0; top: 8px; }
+            50% { opacity: 1; }
+            100% { opacity: 0; top: 20px; }
+        }
+
+        /* --- Mission Ticker --- */
         .mission-ticker {
             position: fixed;
-            bottom: 80px; width: 100%;
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(5px);
-            padding: 12px 0;
+            bottom: 60px;
+            width: 100%;
+            background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.1), transparent);
+            padding: 15px 0;
             z-index: 50;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            overflow: hidden;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
         .ticker-content {
             display: inline-block;
-            animation: ticker 35s linear infinite;
-            font-weight: 700;
+            animation: ticker 40s linear infinite;
+            font-weight: 400;
             text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 2.5px;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
             color: var(--accent-gold);
-            white-space: nowrap;
         }
 
         @keyframes ticker {
@@ -194,21 +224,21 @@
             100% { transform: translateX(-100%); }
         }
 
-        .swiper-pagination-bullet { background: #fff; width: 10px; height: 10px; transition: 0.3s; }
-        .swiper-pagination-bullet-active { background: var(--primary-green); width: 35px; border-radius: 5px; }
-
         footer {
-            padding: 20px 0;
+            padding: 15px 0;
             position: fixed;
             bottom: 0; width: 100%;
             z-index: 100;
-            background: var(--deep-black);
+            background: #000;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
         }
 
-        /* Mobile Adjustments */
+        /* Responsive */
         @media (max-width: 768px) {
-            .btn-outline-white { margin-left: 0; margin-top: 15px; display: block; }
-            .hero-content { margin-top: 80px; }
+            .hero-content h1 { font-size: 3rem; }
+            .btn-outline-white { margin-left: 0; margin-top: 10px; display: block; }
+            .btn-gold { display: block; width: 100%; }
         }
     </style>
 </head>
@@ -217,18 +247,19 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
-                <img src="logo.jpg" alt="Logo" height="50" class="me-2 rounded-circle border border-success">
-                <span class="ls-tight">THE <span class="text-green">CONTINENT</span> VENTURES <small class="opacity-50 fw-light" style="font-size: 0.6em;">FOUNDATION</small></span>
+                <img src="logo.jpg" alt="Logo" height="45" class="me-3 rounded-circle border border-secondary">
+                <span class="text-uppercase">The <span class="text-white">Continent</span> Ventures<br>
+                <small class="opacity-50 fw-light" style="font-size: 0.55em; letter-spacing: 3px;">Foundation</small></span>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">Our Mission</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Impact</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item ms-lg-3"><a class="btn btn-green btn-sm px-4 py-2" style="font-size: 0.8rem;" href="donate.html">Donate Now</a></li>
+                    <li class="nav-item ms-lg-4"><a class="btn btn-gold px-4 py-2" style="font-size: 0.7rem;" href="donate.html">Donate Now</a></li>
                 </ul>
             </div>
         </div>
@@ -239,59 +270,55 @@
             
             <div class="swiper-slide d-flex align-items-center justify-content-center">
                 <div class="slide-bg-container">
-                    <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=1920&auto=format&fit=crop" class="slide-bg" alt="Education">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1920" class="slide-bg" alt="Global Support">
                 </div>
                 <div class="hero-content">
-                    <h1>Your Giving, <br>Their Future</h1>
-                    <p>Every donation provides a stepping stone for children across Africa to reach their potential through education.</p>
-                    <div class="btn-group-wrap opacity-0">
-                        <a href="donate.html" class="btn btn-green"><i class="fas fa-heart me-2"></i> Donate Now</a>
-                        <a href="about.html" class="btn btn-outline-white">Learn More</a>
+                    <h1>Hope for Every <br>African Child</h1>
+                    <p>Building a future where every child has access to clean water, quality education, and the nutrition they need to thrive.</p>
+                    <div class="btn-group-wrap">
+                        <a href="donate.html" class="btn btn-gold">Make an Impact</a>
+                        <a href="about.html" class="btn btn-outline-white">Our Mission</a>
                     </div>
                 </div>
             </div>
 
             <div class="swiper-slide d-flex align-items-center justify-content-center">
                 <div class="slide-bg-container">
-                    <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=1920&auto=format&fit=crop" class="slide-bg" alt="Nutrition">
+                    <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1920" class="slide-bg" alt="Nutrition">
                 </div>
                 <div class="hero-content">
-                    <h1>End Child <br>Hunger Today</h1>
-                    <p>We provide healthy meals to ensure that no child has to study or sleep on an empty stomach.</p>
-                    <div class="btn-group-wrap opacity-0">
-                        <a href="donate.html" class="btn btn-green"><i class="fas fa-utensils me-2"></i> Donate Now</a>
-                        <a href="about.html" class="btn btn-outline-white">Our Food Programs</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide d-flex align-items-center justify-content-center">
-                <div class="slide-bg-container">
-                    <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=1920&auto=format&fit=crop" class="slide-bg" alt="Clean Water">
-                </div>
-                <div class="hero-content">
-                    <h1>Clean Water <br>Saves Lives</h1>
-                    <p>Access to safe, clean drinking water is a fundamental right that we bring to every community we serve.</p>
-                    <div class="btn-group-wrap opacity-0">
-                        <a href="donate.html" class="btn btn-green"><i class="fas fa-tint me-2"></i> Donate Now</a>
-                        <a href="about.html" class="btn btn-outline-white">See Projects</a>
+                    <h1>Nourishing <br>Potential</h1>
+                    <p>Combating hunger through sustainable nutrition programs that empower communities and fuel young minds.</p>
+                    <div class="btn-group-wrap">
+                        <a href="donate.html" class="btn btn-gold">Feed a Child</a>
+                        <a href="about.html" class="btn btn-outline-white">The Program</a>
                     </div>
                 </div>
             </div>
 
         </div>
+        
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+
         <div class="swiper-pagination"></div>
     </div>
 
     <div class="mission-ticker">
         <div class="ticker-content">
-            Empowering Children • Education • Clean Water • Healthcare • Nutrition • Sustainability • Nairobi, Kenya • Support The Continent Ventures Foundation • Every Dollar Counts
+            Sustainable Ventures • Quality Education • Clean Water Solutions • Global Impact • Nairobi, Kenya • The Continent Ventures Foundation • Join the movement
         </div>
     </div>
 
     <footer class="text-center">
-        <div class="container">
-            <p class="small opacity-50 m-0">&copy; <span id="currentYear"></span> The Continent Ventures Foundation. <a href="donate.html" class="text-white text-decoration-none ms-2 fw-bold border-bottom border-success">Give Hope Today</a></p>
+        <div class="container d-flex justify-content-between align-items-center opacity-50">
+            <p class="m-0">&copy; <span id="currentYear"></span> The Continent Ventures Foundation.</p>
+            <div class="socials d-none d-md-block">
+                <i class="fab fa-facebook-f mx-2"></i>
+                <i class="fab fa-instagram mx-2"></i>
+                <i class="fab fa-twitter mx-2"></i>
+            </div>
         </div>
     </footer>
 
@@ -299,13 +326,40 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.getElementById("currentYear").textContent = new Date().getFullYear();
+        
         var swiper = new Swiper(".myHeroSlider", {
             loop: true,
             effect: "fade",
-            fadeEffect: { crossFade: true },
-            autoplay: { delay: 6000, disableOnInteraction: false },
-            speed: 1500,
+            autoplay: { delay: 7000, disableOnInteraction: false },
+            speed: 2000,
             pagination: { el: ".swiper-pagination", clickable: true },
+            on: {
+                slideChangeTransitionStart: function () {
+                    // Reset animations
+                    const contents = document.querySelectorAll('.hero-content h1, .hero-content p, .btn-group-wrap');
+                    contents.forEach(el => {
+                        el.style.opacity = "0";
+                        el.style.transform = "translateY(30px)";
+                        el.style.transition = "none";
+                    });
+                },
+                slideChangeTransitionEnd: function () {
+                    // Trigger animations
+                    const activeSlide = document.querySelector('.swiper-slide-active .hero-content');
+                    const h1 = activeSlide.querySelector('h1');
+                    const p = activeSlide.querySelector('p');
+                    const btn = activeSlide.querySelector('.btn-group-wrap');
+
+                    h1.style.transition = "all 1s ease 0.2s";
+                    p.style.transition = "all 1s ease 0.4s";
+                    btn.style.transition = "all 1s ease 0.6s";
+
+                    [h1, p, btn].forEach(el => {
+                        el.style.opacity = "1";
+                        el.style.transform = "translateY(0)";
+                    });
+                }
+            }
         });
     </script>
 </body>
