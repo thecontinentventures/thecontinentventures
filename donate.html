@@ -3,170 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donate | The Continent Ventures</title>
+    <title>Donate | The Continent Ventures Foundation</title>
+    
+    <meta name="description" content="Support The Continent Ventures Foundation. Donate via M-Pesa or Bank transfer to help us empower lives across Africa.">
     
     <link rel="icon" type="image/jpeg" href="logo.jpg">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-green: #2e7d32;
+            --primary-green: #0a2f10;
+            --accent-gold: #d4af37;
+            --glass-bg: rgba(10, 47, 16, 0.9);
+            --border-glow: rgba(212, 175, 55, 0.3);
+            --off-white: #ffffff;
             --mpesa-green: #48b04b;
-            --deep-black: #0a0a0a;
-            --pure-white: #ffffff;
         }
 
         body, html {
             height: 100%;
             margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--deep-black);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--primary-green);
+            color: var(--off-white);
             overflow-x: hidden;
         }
 
+        /* --- BACKGROUND EFFECT --- */
         .page-bg {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
-                        url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1920&q=80');
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2;
+            background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
+            filter: brightness(0.3);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(10, 47, 16, 0.8) 0%, rgba(5, 5, 5, 0.95) 100%);
             z-index: -1;
         }
 
+        /* --- NAVIGATION --- */
         .navbar { 
-            background-color: rgba(0, 0, 0, 0.9) !important;
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--primary-green);
-            z-index: 1000;
+            background: rgba(10, 47, 16, 0.9) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-glow);
+            padding: 12px 0;
         }
-        .text-green { color: var(--primary-green) !important; }
+        
+        .nav-link {
+            color: var(--off-white) !important;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
 
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-gold) !important;
+        }
+
+        .accent-text { color: var(--accent-gold); }
+
+        /* --- DONATION CARDS --- */
         .donate-wrapper {
-            padding: 100px 0 60px;
+            padding: 140px 0 80px;
             min-height: 100vh;
         }
 
+        .headline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+        }
+
         .donation-card {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 24px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--border-glow);
+            border-radius: 30px;
             overflow: hidden;
             box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-            border: none;
             height: 100%;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: fadeInScale 0.8s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .donation-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
         }
 
         .card-header-accent {
-            padding: 12px;
-            color: white;
-            font-weight: 700;
+            padding: 15px;
+            color: var(--primary-green);
+            font-weight: 800;
             text-align: center;
             text-transform: uppercase;
             font-size: 0.75rem;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            background: var(--accent-gold);
         }
-        .bg-mpesa { background: var(--mpesa-green); }
-        .bg-bank { background: var(--primary-green); }
 
         .logo-container {
-            height: 80px;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
             padding: 10px;
         }
+        
         .logo-container img {
             max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
+            filter: brightness(1.1);
         }
 
         .payment-box {
-            background: #f8f9fa;
-            border: 2px dashed #dee2e6;
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 15px;
             text-align: center;
+            transition: 0.3s;
+        }
+
+        .payment-box:hover {
+            background: rgba(212, 175, 55, 0.05);
         }
 
         .pay-label {
-            font-size: 0.7rem;
-            color: #6c757d;
-            font-weight: 700;
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            font-weight: 600;
             text-transform: uppercase;
-            margin-bottom: 2px;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
         }
 
         .pay-value {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            color: var(--deep-black);
+            color: #ffffff;
             margin: 0;
             letter-spacing: 1px;
         }
-        .text-bank { color: var(--primary-green); }
 
-        .btn-action {
-            background-color: var(--primary-green);
-            color: white;
-            border: none;
+        .btn-gold {
+            background: var(--accent-gold);
+            color: var(--primary-green);
             padding: 14px;
-            font-weight: 700;
+            font-weight: 800;
             border-radius: 50px;
+            text-transform: uppercase;
+            border: 2px solid var(--accent-gold);
             width: 100%;
             transition: 0.3s;
-            margin-top: 10px;
             text-decoration: none;
             display: inline-block;
             text-align: center;
+            margin-top: 10px;
         }
 
-        .btn-action:hover {
-            background-color: #1b5e20;
-            color: white;
-            box-shadow: 0 10px 20px rgba(46, 125, 50, 0.3);
+        .btn-gold:hover {
+            background: transparent;
+            color: var(--accent-gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
         }
 
         footer {
-            background: rgba(0,0,0,0.9);
-            color: white;
-            padding: 25px 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 40px 0;
+            border-top: 1px solid var(--border-glow);
+            background: rgba(5, 5, 5, 0.8);
         }
     </style>
 </head>
 <body>
 
     <div class="page-bg"></div>
+    <div class="overlay"></div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
-                <img src="logo.jpg" alt="Logo" height="45" class="me-2 rounded-circle">
-                <span>THE <span class="text-green">CONTINENT</span> VENTURES</span>
+                <img src="logo.jpg" alt="Logo" height="45" class="me-3 rounded-circle border border-warning">
+                <span class="text-uppercase" style="font-size: 0.95rem;">The <span class="accent-text">Continent</span> Ventures</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                    <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-success ms-lg-4 px-4 active" href="donate.html" style="background-color: var(--primary-green); color: white;">Donate</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-gold py-2 px-4 active" style="font-size: 0.75rem; background: var(--accent-gold); color: var(--primary-green);" href="donate.html">Donate</a></li>
                 </ul>
             </div>
         </div>
@@ -174,23 +221,26 @@
 
     <div class="donate-wrapper">
         <div class="container">
-            <div class="text-center mb-5 text-white">
-                <h1 class="display-4 fw-bold mb-2">Support Our Mission</h1>
-                <p class="lead opacity-75">Choose your preferred method to impact a child's life today.</p>
+            <div class="text-center mb-5">
+                <span class="badge rounded-pill mb-3 px-3 py-2" style="border: 1px solid var(--accent-gold); color: var(--accent-gold); letter-spacing: 2px;">MAKE AN IMPACT</span>
+                <h1 class="headline mb-3">Support Our <span class="accent-text">Mission.</span></h1>
+                <p class="lead opacity-75 mx-auto" style="max-width: 700px; font-weight: 300;">
+                    Your generosity fuels sustainable change. Choose a method below to contribute to our ongoing projects across Africa.
+                </p>
             </div>
 
             <div class="row g-4 justify-content-center">
-                <div class="col-md-5 col-lg-4">
+                <div class="col-md-6 col-lg-5 col-xl-4">
                     <div class="donation-card">
-                        <div class="card-header-accent bg-mpesa">Mobile Money</div>
+                        <div class="card-header-accent">Mobile Money</div>
                         <div class="p-4">
                             <div class="logo-container">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg" alt="M-Pesa Logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg" alt="M-Pesa Logo" style="height: 40px;">
                             </div>
                             
                             <div class="payment-box">
                                 <p class="pay-label">Lipa Na M-Pesa Paybill</p>
-                                <p class="pay-value" style="color: #48b04b;">400200</p>
+                                <p class="pay-value" style="color: var(--mpesa-green);">400200</p>
                             </div>
 
                             <div class="payment-box">
@@ -198,38 +248,43 @@
                                 <p class="pay-value">57061</p>
                             </div>
 
-                            <p class="text-muted small text-center mb-2">Instant donation via your mobile device.</p>
-                            <p class="text-center fw-bold text-success small mb-4">Donate as low as 10 Shillings to change a life.</p>
+                            <p class="text-center opacity-75 small mb-4">
+                                <i class="fa-solid fa-circle-info me-2 accent-text"></i>Donate as low as 10 Shillings to change a life.
+                            </p>
                             
-                            <a href="contact.html" class="btn-action">
+                            <a href="contact.html" class="btn-gold">
                                 <i class="fa-solid fa-paper-plane me-2"></i>I've Donated
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-5 col-lg-4">
+                <div class="col-md-6 col-lg-5 col-xl-4">
                     <div class="donation-card">
-                        <div class="card-header-accent bg-bank">Bank & Cheque</div>
+                        <div class="card-header-accent">Bank Transfer</div>
                         <div class="p-4">
                             <div class="logo-container">
-                                <img src="coop_logo.png" alt="Co-Operative Bank">
+                                <img src="coop_logo.png" alt="Co-Operative Bank" onerror="this.src='https://upload.wikimedia.org/wikipedia/en/thumb/7/75/Co-operative_Bank_of_Kenya_logo.svg/1200px-Co-operative_Bank_of_Kenya_logo.svg.png'">
                             </div>
 
                             <div class="payment-box">
                                 <p class="pay-label">Account Name</p>
-                                <p class="pay-value text-bank" style="font-size: 1.1rem;">THE CONTINENT VENTURES</p>
+                                <p class="pay-value" style="font-size: 1.2rem;">THE CONTINENT VENTURES</p>
                             </div>
 
-                            <div class="payment-box">
-                                <p class="pay-label">Branch & Details</p>
-                                <p class="fw-bold mb-0">Lavington Branch, Nairobi</p>
-                                <p class="small text-muted">Swift: COOPKENA</p>
+                            <div class="payment-box text-start">
+                                <div class="row g-0">
+                                    <div class="col-12 mb-2 text-center">
+                                        <p class="pay-label">Branch & Swift</p>
+                                        <p class="fw-bold mb-0 small">Lavington Branch, Nairobi</p>
+                                        <p class="accent-text small mb-0">Swift: COOPKENA</p>
+                                    </div>
+                                </div>
                             </div>
 
-                            <p class="text-muted small text-center mb-4">Ideal for larger contributions and cheques.</p>
+                            <p class="text-center opacity-75 small mb-4">Ideal for international transfers and larger institutional contributions.</p>
 
-                            <a href="contact.html" class="btn-action">
+                            <a href="contact.html" class="btn-gold">
                                 <i class="fa-solid fa-heart me-2"></i>Partner With Us
                             </a>
                         </div>
@@ -238,10 +293,10 @@
             </div>
 
             <div class="row mt-5">
-                <div class="col-12 text-center text-white">
-                    <div class="opacity-75 small">
-                        <p class="mb-1"><i class="fa-solid fa-location-dot me-2 text-green"></i>P.O. Box 27475 - 00100 GPO, Nairobi, Kenya</p>
-                        <p><i class="fa-solid fa-shield-halved me-2 text-green"></i>Verified Non-Profit Organization</p>
+                <div class="col-12 text-center">
+                    <div class="opacity-50 small">
+                        <p class="mb-1"><i class="fa-solid fa-location-dot me-2 accent-text"></i>P.O. Box 27475 - 00100 GPO, Nairobi, Kenya</p>
+                        <p><i class="fa-solid fa-shield-halved me-2 accent-text"></i>Registered and Verified Non-Profit Organization</p>
                     </div>
                 </div>
             </div>
@@ -250,7 +305,7 @@
 
     <footer class="text-center">
         <div class="container">
-            <p class="m-0 small opacity-75">&copy; <span id="year"></span> The Continent Ventures. Empowering Africa's Future.</p>
+            <p class="m-0 small opacity-50">&copy; <span id="year"></span> The Continent Ventures Foundation. Empowering Africa's Future.</p>
         </div>
     </footer>
 
