@@ -3,216 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | The Continent Ventures | Mission & Impact in Africa</title>
+    <title>Our Mission | The Continent Ventures Foundation</title>
     
-    <meta name="description" content="Learn about The Continent Ventures mission to support vulnerable children in Africa through sustainable nutrition, education, and healthcare access.">
+    <meta name="description" content="Discover how The Continent Ventures Foundation is transforming lives through education, nutrition, and sustainable community development in Africa.">
     <link rel="canonical" href="https://thecontinentventures.github.io/thecontinentventures/about.html" />
     
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://thecontinentventures.github.io/thecontinentventures/about.html">
-    <meta property="og:title" content="About Us | The Continent Ventures">
-    <meta property="og:description" content="Driven by passion, guided by impact. Rewriting the narrative for vulnerable children across Africa.">
-    <meta property="og:image" content="https://thecontinentventures.github.io/thecontinentventures/logo.jpg">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AboutPage",
-      "mainEntity": {
-        "@type": "NGO",
-        "name": "The Continent Ventures",
-        "description": "A movement dedicated to providing nutrition, education, and health support to children across Africa.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Nairobi",
-          "addressCountry": "KE"
-        }
-      }
-    }
-    </script>
-
     <link rel="icon" type="image/jpeg" href="logo.jpg" sizes="any">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-green: #1b5e20;
-            --accent-green: #66bb6a;
-            --glass-bg: rgba(15, 23, 42, 0.85);
-            --border-glow: rgba(102, 187, 106, 0.3);
+            --primary-green: #0a2f10;
+            --accent-gold: #d4af37;
+            --glass-bg: rgba(10, 47, 16, 0.9);
+            --border-glow: rgba(212, 175, 55, 0.3);
+            --off-white: #ffffff;
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #000;
-            color: #f8fafc;
+            background-color: var(--primary-green);
+            color: var(--off-white);
             overflow-x: hidden;
             margin: 0;
         }
 
-        /* Responsive Background Effect */
+        /* --- BACKGROUND EFFECT --- */
         .hero-bg {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             z-index: -2;
-            background-image: url('https://images.unsplash.com/photo-1503919919749-6466a55d6928?q=80&w=1920&auto=format');
+            background-image: url('https://images.pexels.com/photos/1125850/pexels-photo-1125850.jpeg?auto=compress&cs=tinysrgb&w=1920');
             background-size: cover;
             background-position: center;
-            animation: kenBurns 30s infinite alternate;
-        }
-
-        @keyframes kenBurns {
-            from { transform: scale(1); }
-            to { transform: scale(1.15); }
+            filter: brightness(0.4);
         }
 
         .overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.95) 100%);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(10, 47, 16, 0.8) 0%, rgba(5, 5, 5, 0.95) 100%);
             z-index: -1;
         }
 
-        /* --- STICKY DYNAMIC NAVIGATION --- */
+        /* --- NAVIGATION --- */
         .navbar {
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding: 1rem 0;
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        .navbar-brand {
-            font-weight: 800;
-            letter-spacing: -1px;
-            font-size: clamp(1rem, 4vw, 1.4rem);
+            background: rgba(10, 47, 16, 0.9) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-glow);
+            padding: 12px 0;
         }
 
         .nav-link {
-            font-weight: 600;
-            font-size: 0.95rem;
+            color: var(--off-white) !important;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
             margin: 0 10px;
-            transition: color 0.3s ease;
-            color: rgba(255,255,255,0.8) !important;
+            transition: 0.3s;
         }
 
         .nav-link:hover, .nav-link.active {
-            color: var(--accent-green) !important;
+            color: var(--accent-gold) !important;
         }
 
-        /* --- MAIN CARD --- */
+        /* --- CONTENT CARD --- */
         .scroll-container {
-            padding-top: 120px;
-            padding-bottom: 60px;
-            min-height: 100vh;
+            padding-top: 140px;
+            padding-bottom: 80px;
         }
 
         .main-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
+            backdrop-filter: blur(30px);
             border: 1px solid var(--border-glow);
-            border-radius: clamp(20px, 5vw, 40px);
-            padding: clamp(25px, 6vw, 80px);
-            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.8);
+            border-radius: 40px;
+            padding: clamp(30px, 6vw, 80px);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
         }
 
         h1.headline {
-            font-size: clamp(2rem, 8vw, 4.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -2px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 6vw, 3.8rem);
+            line-height: 1.2;
             margin-bottom: 1.5rem;
         }
 
-        /* Grid for Stats */
+        .accent-text { color: var(--accent-gold); }
+
+        /* --- STATS --- */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1.5rem;
-            margin: 3rem 0;
-            padding: 2rem 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+            padding: 2.5rem 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .stat-box h2 {
             font-weight: 800;
-            color: var(--accent-green);
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            margin: 0;
+            color: var(--accent-gold);
+            font-size: 2.8rem;
+            margin-bottom: 5px;
         }
 
-        /* Feature Cards */
+        .stat-box p {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        /* --- IMPACT BOXES --- */
         .impact-feature {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: clamp(20px, 4vw, 40px);
-            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 40px;
+            border-radius: 30px;
             height: 100%;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: 0.4s;
         }
 
         .impact-feature:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent-green);
-            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.05);
         }
 
         .icon-circle {
-            width: 50px;
-            height: 50px;
-            background: var(--primary-green);
-            border-radius: 12px;
+            width: 60px; height: 60px;
+            background: var(--accent-gold);
+            color: var(--primary-green);
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-            color: white;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
         }
 
-        /* --- FOOTER & ADDRESS --- */
-        .footer-address {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
+        /* --- BUTTONS --- */
+        .btn-gold {
+            background: var(--accent-gold);
+            color: var(--primary-green);
+            padding: 15px 40px;
+            font-weight: 800;
+            border-radius: 50px;
+            text-transform: uppercase;
+            border: 2px solid var(--accent-gold);
+            transition: 0.3s;
         }
 
-        .address-text {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            line-height: 1.6;
+        .btn-gold:hover {
+            background: transparent;
+            color: var(--accent-gold);
+        }
+
+        /* --- FOOTER --- */
+        .footer-section {
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
         }
 
         .social-links a {
-            color: #fff;
-            margin: 0 10px;
-            font-size: 1.2rem;
+            color: var(--off-white);
+            margin: 0 15px;
+            font-size: 1.3rem;
             transition: 0.3s;
             opacity: 0.6;
-            text-decoration: none;
         }
 
         .social-links a:hover {
-            color: var(--accent-green);
+            color: var(--accent-gold);
             opacity: 1;
-        }
-
-        /* Responsive Breakpoints */
-        @media (max-width: 991px) {
-            .navbar { background: rgba(0, 0, 0, 0.95); }
-            .scroll-container { padding-top: 100px; }
-            .main-card { border-radius: 0; margin-top: -20px; }
         }
     </style>
 </head>
@@ -220,23 +189,19 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="logo.jpg" alt="The Continent Ventures Logo" height="50" class="me-2 rounded-circle">
-                <span>THE <span style="color:var(--accent-green)">CONTINENT</span> VENTURES</span>
+            <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
+                <img src="logo.jpg" alt="Logo" height="45" class="me-3 rounded-circle border border-warning">
+                <span class="text-uppercase" style="font-size: 0.95rem;">The <span class="accent-text">Continent</span> Ventures</span>
             </a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-                        <a class="btn btn-success rounded-pill px-4 fw-bold w-100 w-lg-auto" href="donate.html" style="background-color: var(--primary-green); border: none;">Donate Now</a>
-                    </li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-gold py-2 px-4" style="font-size: 0.75rem;" href="donate.html">Donate</a></li>
                 </ul>
             </div>
         </div>
@@ -252,71 +217,64 @@
                     
                     <div class="main-card">
                         <div class="text-center mb-5">
-                            <span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill mb-3 fw-bold">OUR STORY</span>
-                            <h1 class="headline">Driven by Passion, <br><span style="color:var(--accent-green)">Guided by Impact.</span></h1>
-                            <p class="lead opacity-75 mx-auto" style="max-width: 800px;">
-                                We are a movement dedicated to rewriting the narrative for vulnerable children across Africa. By providing nutrition, education, and health support, we build the foundation for future leaders.
+                            <span class="badge rounded-pill mb-3 px-3 py-2" style="border: 1px solid var(--accent-gold); color: var(--accent-gold);">WHO WE ARE</span>
+                            <h1 class="headline">Building a Future Where <br><span class="accent-text">No Child is Left Behind.</span></h1>
+                            <p class="lead opacity-75 mx-auto" style="max-width: 850px; font-weight: 300; line-height: 1.8;">
+                                At <strong>The Continent Ventures Foundation</strong>, we believe that the zip code a child is born in should not determine their destiny. In the heart of Nairobi and across Africa, we are more than just a foundation—we are a lifeline. We transform empathy into action, ensuring that every African child has the health, education, and nutrition required to become a global leader.
                             </p>
                         </div>
 
                         <div class="stats-grid text-center">
-                            <div class="stat-box"><h2>500+</h2><p class="small opacity-50">DAILY MEALS</p></div>
-                            <div class="stat-box"><h2>1.2k</h2><p class="small opacity-50">STUDENTS HELPED</p></div>
-                            <div class="stat-box"><h2>12</h2><p class="small opacity-50">LOCAL SCHOOLS</p></div>
-                            <div class="stat-box"><h2>100%</h2><p class="small opacity-50">TRANSPARENCY</p></div>
+                            <div class="stat-box"><h2>15k+</h2><p>Meals Served</p></div>
+                            <div class="stat-box"><h2>1.2k</h2><p>Scholars Funded</p></div>
+                            <div class="stat-box"><h2>5+</h2><p>Water Projects</p></div>
+                            <div class="stat-box"><h2>100%</h2><p>Direct Impact</p></div>
                         </div>
 
-                        <div class="row g-4">
+                        <div class="row g-4 mb-5">
                             <div class="col-lg-4 col-md-6">
                                 <div class="impact-feature">
-                                    <div class="icon-circle"><i class="fa-solid fa-utensils"></i></div>
-                                    <h5 class="fw-bold">Sustainable Nutrition</h5>
-                                    <p class="small opacity-70 mb-0">Fighting classroom hunger with consistent, nutrient-rich meal programs designed for growth.</p>
+                                    <div class="icon-circle"><i class="fa-solid fa-graduation-cap"></i></div>
+                                    <h4 class="fw-bold mb-3">Education First</h4>
+                                    <p class="opacity-75">We don't just pay fees; we provide uniforms, books, and digital literacy tools that break the cycle of generational poverty.</p>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="impact-feature">
-                                    <div class="icon-circle"><i class="fa-solid fa-laptop-code"></i></div>
-                                    <h5 class="fw-bold">Digital Literacy</h5>
-                                    <p class="small opacity-70 mb-0">Bridging the gap by providing digital tools and modern educational resources to local schools in Nairobi.</p>
+                                    <div class="icon-circle"><i class="fa-solid fa-apple-whole"></i></div>
+                                    <h4 class="fw-bold mb-3">Total Nutrition</h4>
+                                    <p class="opacity-75">Our school feeding programs increase attendance by 40% and ensure that children are focusing on their books, not their hunger.</p>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-12">
                                 <div class="impact-feature">
-                                    <div class="icon-circle"><i class="fa-solid fa-heart-pulse"></i></div>
-                                    <h5 class="fw-bold">Healthcare Access</h5>
-                                    <p class="small opacity-70 mb-0">Providing medical checkups and essential healthcare support to ensure every child stays healthy.</p>
+                                    <div class="icon-circle"><i class="fa-solid fa-droplet"></i></div>
+                                    <h4 class="fw-bold mb-3">Clean Access</h4>
+                                    <p class="opacity-75">Health begins with water. We install sustainable filtration systems in local schools to eliminate water-borne illnesses.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="footer-address text-center">
-                            <div class="row justify-content-center">
-                                <div class="col-md-8">
-                                    <div class="social-links mb-4">
-                                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                                    </div>
-                                    <div class="address-text mb-3">
-                                        <i class="fa-solid fa-location-dot text-success me-2"></i>
-                                        NAIROBI, KENYA<br>
-                                        P.O. Box 27475-00100 GPO, Nairobi, Kenya
-                                    </div>
-                                    <div class="address-text">
-                                        <i class="fa-solid fa-envelope text-success me-2"></i> info@thecontinentventures.org | 
-                                        <i class="fa-solid fa-phone text-success ms-2 me-2"></i> +254 700 000 000
-                                    </div>
-                                </div>
+                        <div class="text-center py-5">
+                            <h3 class="fw-bold mb-4">Ready to change a life today?</h3>
+                            <a href="donate.html" class="btn btn-gold px-5 py-3">Start Your Impact</a>
+                        </div>
+
+                        <div class="footer-section text-center">
+                            <div class="social-links mb-4">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                            <div class="address-text opacity-75 small">
+                                <p class="mb-1"><i class="fas fa-location-dot accent-text me-2"></i> Nairobi, Kenya | P.O. Box 27475-00100 GPO</p>
+                                <p><i class="fas fa-envelope accent-text me-2"></i> info@thecontinentventures.org</p>
                             </div>
                         </div>
                     </div>
 
-                    <footer class="text-center mt-4 mb-4">
-                        <p class="small opacity-40">
-                            &copy; <span id="autoYear"></span> The Continent Ventures. All Rights Reserved.
-                        </p>
+                    <footer class="text-center mt-5">
+                        <p class="small opacity-50">&copy; <span id="autoYear"></span> The Continent Ventures Foundation. All Rights Reserved.</p>
                     </footer>
 
                 </div>
