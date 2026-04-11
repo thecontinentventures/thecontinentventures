@@ -3,285 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | The Continent Ventures</title>
+    <title>Contact Us | The Continent Ventures Foundation</title>
+    
+    <meta name="description" content="Get in touch with The Continent Ventures Foundation. Reach out for partnerships, donations, or volunteer opportunities in Nairobi, Kenya.">
     
     <link rel="icon" type="image/jpeg" href="logo.jpg" sizes="any">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-green: #2e7d32;
-            --deep-black: #0a0a0a;
-            --pure-white: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.98);
-            --whatsapp-color: #25d366;
+            --primary-green: #0a2f10;
+            --accent-gold: #d4af37;
+            --glass-bg: rgba(10, 47, 16, 0.9);
+            --border-glow: rgba(212, 175, 55, 0.3);
+            --off-white: #ffffff;
         }
 
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--deep-black);
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--primary-green);
+            color: var(--off-white);
             overflow-x: hidden;
+            margin: 0;
         }
 
-        /* Background Layer */
-        .page-bg {
+        /* --- BACKGROUND EFFECT --- */
+        .hero-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
-                        url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80');
+            z-index: -2;
+            background-image: url('https://images.pexels.com/photos/3312664/pexels-photo-3312664.jpeg?auto=compress&cs=tinysrgb&w=1920');
             background-size: cover;
             background-position: center;
+            filter: brightness(0.3);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(10, 47, 16, 0.85) 0%, rgba(5, 5, 5, 0.95) 100%);
             z-index: -1;
         }
 
-        /* Navigation */
-        .navbar { 
-            background-color: rgba(0, 0, 0, 0.95) !important;
+        /* --- NAVIGATION --- */
+        .navbar {
+            background: rgba(10, 47, 16, 0.9) !important;
             backdrop-filter: blur(15px);
-            border-bottom: 2px solid var(--primary-green);
-            padding: 15px 0;
-        }
-        .text-green { color: var(--primary-green) !important; }
-
-        /* Main Wrapper */
-        .contact-wrapper {
-            padding: 140px 0 80px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
+            border-bottom: 1px solid var(--border-glow);
+            padding: 12px 0;
         }
 
-        /* Contact Card */
-        .contact-card {
-            background: var(--glass-bg);
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-            border: none;
-        }
-
-        /* Sidebar Panel */
-        .contact-info-panel {
-            background: linear-gradient(135deg, var(--primary-green) 0%, #1b5e20 100%);
-            color: white;
-            padding: 50px 40px;
-            height: 100%;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 35px;
-            transition: 0.3s;
-        }
-        
-        .info-icon {
-            width: 45px;
-            height: 45px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            font-size: 1.2rem;
-        }
-
-        /* Form Styling */
-        .form-panel { padding: 50px; }
-        .form-control {
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
-            padding: 14px 18px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-        .form-control:focus {
-            border-color: var(--primary-green);
-            box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.1);
-            background: #ffffff;
-        }
-
-        .btn-green { 
-            background-color: var(--primary-green); 
-            color: white; 
-            padding: 16px;
-            font-weight: 700;
-            border-radius: 12px;
-            width: 100%;
-            transition: 0.4s;
-            border: none;
+        .nav-link {
+            color: var(--off-white) !important;
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
-        }
-        .btn-green:hover { 
-            background-color: #1b5e20; 
-            transform: translateY(-3px); 
-            box-shadow: 0 10px 20px rgba(46,125,50,0.3); 
-        }
-
-        /* WhatsApp Button */
-        .whatsapp-float {
-            background-color: var(--whatsapp-color);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            display: inline-flex;
-            align-items: center;
-            text-decoration: none;
-            font-weight: 700;
+            font-size: 0.85rem;
+            margin: 0 10px;
             transition: 0.3s;
-            margin-top: 20px;
-            cursor: pointer;
-            border: none;
-        }
-        .whatsapp-float:hover { 
-            background-color: #128c7e; 
-            color: white; 
-            transform: scale(1.05); 
         }
 
-        footer { 
-            background: rgba(0,0,0,0.9); 
-            color: #777; 
-            padding: 30px 0; 
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-gold) !important;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 991px) {
-            .contact-card { border-radius: 0; }
-            .contact-wrapper { padding-top: 100px; }
-            .form-panel, .contact-info-panel { padding: 40px 25px; }
+        /* --- CONTENT CARD --- */
+        .scroll-container {
+            padding-top: 140px;
+            padding-bottom: 80px;
+        }
+
+        .main-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--border-glow);
+            border-radius: 40px;
+            padding: clamp(30px, 6vw, 60px);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+        }
+
+        h1.headline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .accent-text { color: var(--accent-gold); }
+
+        /* --- FORM STYLING --- */
+        .form-control {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent-gold);
+            color: white;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+
+        .form-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: var(--accent-gold);
+        }
+
+        /* --- CONTACT INFO BOXES --- */
+        .contact-info-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .contact-info-item:hover {
+            border-color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        /* --- BUTTONS --- */
+        .btn-gold {
+            background: var(--accent-gold);
+            color: var(--primary-green);
+            padding: 15px 40px;
+            font-weight: 800;
+            border-radius: 50px;
+            text-transform: uppercase;
+            border: 2px solid var(--accent-gold);
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .btn-gold:hover {
+            background: transparent;
+            color: var(--accent-gold);
+        }
+
+        /* --- FOOTER --- */
+        .footer-section {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .social-links a {
+            color: var(--off-white);
+            margin: 0 15px;
+            font-size: 1.3rem;
+            transition: 0.3s;
+            opacity: 0.6;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-gold);
+            opacity: 1;
         }
     </style>
 </head>
 <body>
 
-    <div class="page-bg"></div>
-
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
-                <img src="logo.jpg" alt="Logo" height="40" class="me-2 rounded-circle">
-                <span>THE <span class="text-green">CONTINENT</span> VENTURES</span>
+                <img src="logo.jpg" alt="Logo" height="45" class="me-3 rounded-circle border border-warning">
+                <span class="text-uppercase" style="font-size: 0.95rem;">The <span class="accent-text">Continent</span> Ventures</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center">
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link active fw-bold text-green" href="contact.html">Contact Us</a></li>
-                    <li class="nav-item mt-2 mt-lg-0 ms-lg-4"><a class="btn btn-success rounded-pill px-4 fw-bold" href="donate.html">Donate</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn-gold py-2 px-4 text-decoration-none" style="font-size: 0.75rem; border-radius: 30px;" href="donate.html">Donate</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="contact-wrapper">
+    <div class="hero-bg"></div>
+    <div class="overlay"></div>
+
+    <div class="scroll-container">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-11">
-                    <div class="contact-card">
-                        <div class="row g-0">
-                            <div class="col-lg-5">
-                                <div class="contact-info-panel">
-                                    <h2 class="fw-bold mb-4">Get in Touch</h2>
-                                    <p class="mb-5 opacity-75">We are ready to answer your questions and discuss partnership opportunities for the African child.</p>
+                    
+                    <div class="main-card">
+                        <div class="row g-5">
+                            <div class="col-lg-7">
+                                <span class="badge rounded-pill mb-3 px-3 py-2" style="border: 1px solid var(--accent-gold); color: var(--accent-gold);">GET IN TOUCH</span>
+                                <h1 class="headline">Let's Start a <br><span class="accent-text">Conversation.</span></h1>
+                                <p class="opacity-75 mb-5">Have questions about our projects or want to partner with us? Fill out the form below and our team will get back to you within 24 hours.</p>
+                                
+                                <form action="#" method="POST">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Full Name</label>
+                                            <input type="text" class="form-control" placeholder="John Doe" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Email Address</label>
+                                            <input type="email" class="form-control" placeholder="john@example.com" required>
+                                        </div>
+                                    </div>
+                                    <label class="form-label">Subject</label>
+                                    <select class="form-control">
+                                        <option>General Inquiry</option>
+                                        <option>Partnership Proposal</option>
+                                        <option>Donation Question</option>
+                                        <option>Volunteer Opportunity</option>
+                                    </select>
+                                    <label class="form-label">Your Message</label>
+                                    <textarea class="form-control" rows="5" placeholder="How can we help you?" required></textarea>
                                     
-                                    <div class="info-item">
-                                        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
-                                        <div>
-                                            <h6 class="fw-bold mb-1">Our Headquarters</h6>
-                                            <p class="small mb-0 opacity-75">Nairobi, Kenya</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="info-item">
-                                        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
-                                        <div>
-                                            <h6 class="fw-bold mb-1">Call Us</h6>
-                                            <p class="small mb-0 opacity-75">
-                                                <a href="tel:+254799744340" style="color: inherit; text-decoration: none;">+254 799 744 340</a>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="info-item">
-                                        <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
-                                        <div>
-                                            <h6 class="fw-bold mb-1">Official Email</h6>
-                                            <p class="small mb-0 opacity-75">info@thecontinentventures.org</p>
-                                        </div>
-                                    </div>
-
-                                    <button class="whatsapp-float" onclick="openWhatsApp()">
-                                        <i class="fa-brands fa-whatsapp fs-4 me-2"></i> Chat on WhatsApp
-                                    </button>
-                                </div>
+                                    <button type="submit" class="btn btn-gold mt-3">Send Message</button>
+                                </form>
                             </div>
 
-                            <div class="col-lg-7">
-                                <div class="form-panel">
-                                    <h3 class="fw-bold mb-4 text-dark">Send us a Message</h3>
+                            <div class="col-lg-5">
+                                <div class="ps-lg-4">
+                                    <div class="contact-info-item">
+                                        <div class="info-icon"><i class="fas fa-location-dot"></i></div>
+                                        <h5 class="fw-bold">Our Headquarters</h5>
+                                        <p class="opacity-75 mb-0">Nairobi, Kenya<br>P.O. Box 27475-00100 GPO</p>
+                                    </div>
+
+                                    <div class="contact-info-item">
+                                        <div class="info-icon"><i class="fas fa-envelope-open-text"></i></div>
+                                        <h5 class="fw-bold">Email Us</h5>
+                                        <p class="opacity-75 mb-0">info@thecontinentventures.org<br>support@thecontinentventures.org</p>
+                                    </div>
+
+                                    <div class="contact-info-item">
+                                        <div class="info-icon"><i class="fas fa-phone-volume"></i></div>
+                                        <h5 class="fw-bold">Call Us</h5>
+                                        <p class="opacity-75 mb-0">+254 700 000 000<br>Mon - Fri, 8am - 5pm EAT</p>
+                                    </div>
                                     
-                                    <form action="https://formspree.io/f/xykbaoel" method="POST">
-                                        <input type="hidden" name="_next" value="thank-you.html">
-                                        <input type="hidden" name="_subject" value="New Inquiry: The Continent Ventures">
-                                        <input type="text" name="_gotcha" style="display:none"> 
-                                        
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label class="form-label small fw-bold text-muted">Your Name</label>
-                                                <input type="text" name="name" class="form-control" placeholder="Full Name" required>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="form-label small fw-bold text-muted">Your Email</label>
-                                                <input type="email" name="email" class="form-control" placeholder="Email Address" required>
-                                            </div>
+                                    <div class="mt-4 pt-2 text-center text-lg-start">
+                                        <h6 class="text-uppercase accent-text letter-spacing-2 mb-3" style="font-size: 0.7rem;">Follow Our Journey</h6>
+                                        <div class="social-links ms-0">
+                                            <a href="#" style="margin-left: 0;"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="#"><i class="fab fa-instagram"></i></a>
+                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                            <a href="#"><i class="fab fa-x-twitter"></i></a>
                                         </div>
-                                        <div class="mb-3">
-                                            <label class="form-label small fw-bold text-muted">Subject</label>
-                                            <input type="text" name="subject" class="form-control" placeholder="Inquiry Subject" required>
-                                        </div>
-                                        <div class="mb-4">
-                                            <label class="form-label small fw-bold text-muted">How can we help?</label>
-                                            <textarea name="message" class="form-control" rows="5" placeholder="Type your message here..." required></textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-green shadow-sm">Submit Message</button>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="footer-section text-center">
+                            <p class="small opacity-50 mb-0">&copy; <span id="autoYear"></span> The Continent Ventures Foundation. All Rights Reserved.</p>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="text-center">
-        <div class="container">
-            <p class="m-0 small">&copy; <span id="year"></span> The Continent Ventures. All Rights Reserved.</p>
-        </div>
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
-
-        function openWhatsApp() {
-            const countryCode = "254";
-            const phoneNumber = "799744340";
-            const text = encodeURIComponent("Hello The Continent Ventures, I would like to inquire about your projects.");
-            window.open(`https://wa.me/${countryCode}${phoneNumber}?text=${text}`, '_blank');
-        }
+        document.getElementById("autoYear").textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
