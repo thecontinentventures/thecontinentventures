@@ -1,3 +1,6 @@
+---
+layout: default
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Story | The Continent Ventures Foundation</title>
     
-    <meta name="description" content="The journey of The Continent Ventures Foundation: From a small vision in Nairobi to empowering children across the continent.">
-    
-    <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg" sizes="any">
+    <link rel="icon" type="image/jpeg" href="{{ 'assets/images/logo.jpg' | relative_url }}">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,7 +26,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
             padding-top: 100px;
-            overflow-x: hidden; /* Prevents horizontal scroll during animation */
+            overflow-x: hidden;
         }
 
         .navbar { 
@@ -35,125 +36,73 @@
             padding: 12px 0;
         }
 
-        .nav-link {
-            color: var(--off-white) !important;
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            margin: 0 10px;
-        }
+        .nav-link { color: var(--off-white) !important; text-transform: uppercase; font-size: 0.85rem; margin: 0 10px; }
 
-        .story-header {
-            text-align: center;
-            padding: 60px 20px;
-        }
+        .story-header { text-align: center; padding: 60px 20px; }
+        .story-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--accent-gold); }
 
-        .story-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            color: var(--accent-gold);
-            margin-bottom: 20px;
-        }
+        .story-container { max-width: 900px; margin: 0 auto; padding: 0 20px 60px; line-height: 1.8; }
+        .story-section h2 { font-family: 'Playfair Display', serif; color: var(--accent-gold); border-left: 4px solid var(--accent-gold); padding-left: 15px; margin-bottom: 20px; }
 
-        .story-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px 60px;
-            line-height: 1.8;
-        }
-
-        .story-section { margin-bottom: 50px; }
-
-        .story-section h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--accent-gold);
-            border-left: 4px solid var(--accent-gold);
-            padding-left: 15px;
-            margin-bottom: 20px;
-        }
-
-        /* --- News/Updates Section --- */
-        .updates-section {
+        /* --- Ticker Styling --- */
+        .ticker-wrapper {
+            width: 100%;
+            overflow: hidden;
             background: rgba(255, 255, 255, 0.03);
-            padding: 80px 0;
+            padding: 40px 0;
             border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        /* Initial State for Animation */
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(100px);
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            animation: ticker 30s linear infinite;
         }
 
-        /* Triggered State */
-        .slide-in-right.active {
-            opacity: 1;
-            transform: translateX(0);
+        .ticker-track:hover { animation-play-state: paused; }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
-        .update-card {
-            background: rgba(10, 47, 16, 0.6);
+        .ticker-item {
+            width: 400px;
+            margin: 0 15px;
+            background: rgba(10, 47, 16, 0.8);
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 12px;
-            overflow: hidden;
-            transition: 0.3s;
-            height: 100%;
+            padding: 25px;
+            flex-shrink: 0;
         }
 
-        .update-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-gold);
-        }
+        .update-tag { color: var(--accent-gold); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; }
+        .update-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 10px 0; color: white; }
+        .btn-read { color: var(--accent-gold); text-decoration: none; font-size: 0.85rem; font-weight: bold; }
 
-        .update-content { padding: 25px; }
-        
-        .update-tag {
+        .view-all-box { text-align: center; padding: 40px 0; }
+        .btn-outline-gold {
+            border: 1px solid var(--accent-gold);
             color: var(--accent-gold);
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: bold;
-        }
-
-        .update-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            margin: 10px 0;
-            color: white;
-        }
-
-        .btn-read {
-            color: var(--accent-gold);
+            padding: 10px 30px;
+            border-radius: 50px;
             text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: bold;
+            transition: 0.3s;
         }
+        .btn-outline-gold:hover { background: var(--accent-gold); color: var(--primary-green); }
 
-        .story-cta {
-            background: var(--accent-gold);
-            color: var(--primary-green);
-            text-align: center;
-            padding: 50px 20px;
-            border-radius: 20px;
-            margin: 60px auto;
-            max-width: 900px;
-        }
+        .story-cta { background: var(--accent-gold); color: var(--primary-green); text-align: center; padding: 50px 20px; border-radius: 20px; margin: 60px auto; max-width: 900px; }
 
-        footer {
-            padding: 20px 0;
-            background: #051a09;
-            border-top: 1px solid var(--accent-gold);
-            font-size: 0.75rem;
-        }
+        footer { padding: 20px 0; background: #051a09; border-top: 1px solid var(--accent-gold); font-size: 0.75rem; }
     </style>
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
-                <img src="assets/images/logo.jpg" alt="Logo" height="45" class="me-3 rounded-circle border border-warning">
+            <a class="navbar-brand d-flex align-items-center fw-bold" href="{{ '/' | relative_url }}">
+                <img src="{{ 'assets/images/logo.jpg' | relative_url }}" alt="Logo" height="45" class="me-3 rounded-circle border border-warning">
                 <span class="text-uppercase" style="font-size: 0.95rem; line-height: 1.2;">The <span style="color:var(--accent-gold)">Continent</span> Ventures<br>
                 <small class="fw-light" style="font-size: 0.55em; letter-spacing: 3px; color: #ddd;">Foundation</small></span>
             </a>
@@ -163,9 +112,6 @@
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="story.html" style="color:var(--accent-gold) !important;">Our Story</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                    <li class="nav-item ms-lg-3">
-                        <a class="btn py-2 px-4" style="background:var(--accent-gold); color:var(--primary-green); font-size: 0.75rem; font-weight: bold; border-radius: 4px;" href="donate.html">Donate</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -181,83 +127,59 @@
     <main class="story-container">
         <section class="story-section">
             <h2>The Spark in Nairobi</h2>
-            <p>The Continent Ventures Foundation started in the heart of Nairobi. We witnessed the incredible potential of African children being limited only by their circumstances. We realized that while talent is universal, opportunity is not. This realization sparked our mission to bridge that gap.</p>
+            <p>The Continent Ventures Foundation started in the heart of Nairobi. We witnessed the incredible potential of African children being limited only by their circumstances.</p>
         </section>
-
+        
         <section class="story-section">
             <h2>Our Holistic Approach</h2>
-            <p>We believe that "A Pen Can Change a Child's Destiny." However, education doesn't happen in a vacuum. A child needs clean water to stay healthy and nutritious meals to focus. By addressing these three pillars, we create an environment where children can truly thrive and dream of a brighter future.</p>
+            <p>We believe that "A Pen Can Change a Child's Destiny." Education, nutrition, and clean water are our pillars.</p>
         </section>
     </main>
 
-    <section class="updates-section">
-        <div class="container">
-            <div class="text-center mb-5 slide-in-right">
-                <h2 style="font-family: 'Playfair Display', serif; color: var(--accent-gold);">Latest From the Field</h2>
-                <p style="opacity: 0.8;">Real stories of impact and progress.</p>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-md-6 slide-in-right" style="transition-delay: 0.2s;">
-                    <div class="update-card">
-                        <div class="update-content">
-                            <span class="update-tag">Education</span>
-                            <h3 class="update-title">New Tech Lab at Rudan Junior Academy</h3>
-                            <p class="small opacity-75">Equipping our students with the digital skills necessary for the 21st century...</p>
-                            <a href="_posts/tech-lab-launch.html" class="btn-read">Read Full Story <i class="fas fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
+    <div class="text-center mb-4">
+        <h2 style="font-family: 'Playfair Display', serif; color: var(--accent-gold);">Latest From the Field</h2>
+    </div>
 
-                <div class="col-md-6 slide-in-right" style="transition-delay: 0.4s;">
-                    <div class="update-card">
-                        <div class="update-content">
-                            <span class="update-tag">Community</span>
-                            <h3 class="update-title">Water Project Milestone in Kawangware</h3>
-                            <p class="small opacity-75">Clean water is now flowing for over 200 families, reducing waterborne diseases...</p>
-                            <a href="_posts/clean-water-kawangware.html" class="btn-read">Read Full Story <i class="fas fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
+    <section class="ticker-wrapper">
+        <div class="ticker-track">
+            {% for post in site.posts %}
+            <div class="ticker-item">
+                <span class="update-tag">{{ post.date | date: "%B %d" }}</span>
+                <h3 class="update-title">{{ post.title }}</h3>
+                <p class="small opacity-75">{{ post.excerpt | strip_html | truncatewords: 12 }}</p>
+                <a href="{{ post.url | relative_url }}" class="btn-read">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
+            {% endfor %}
+            {% for post in site.posts %}
+            <div class="ticker-item">
+                <span class="update-tag">{{ post.date | date: "%B %d" }}</span>
+                <h3 class="update-title">{{ post.title }}</h3>
+                <p class="small opacity-75">{{ post.excerpt | strip_html | truncatewords: 12 }}</p>
+                <a href="{{ post.url | relative_url }}" class="btn-read">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            {% endfor %}
         </div>
     </section>
 
+    <div class="view-all-box">
+        <a href="blog.html" class="btn-outline-gold">View All Stories</a>
+    </div>
+
     <div class="story-cta">
-        <h2 style="color: var(--primary-green); border: none;">Be Part of the Next Chapter</h2>
-        <p>Your support turns these stories into reality. Join us in empowering the African child.</p>
-        <a href="donate.html" class="btn py-3 px-5 fw-bold" style="background: var(--primary-green); color: white; border-radius: 50px; text-decoration: none;">Sponsor a Child Today</a>
+        <h2>Be Part of the Next Chapter</h2>
+        <p>Your support turns these stories into reality.</p>
+        <a href="donate.html" class="btn py-3 px-5 fw-bold" style="background: var(--primary-green); color: white; border-radius: 50px; text-decoration: none;">Donate Now</a>
     </div>
 
     <footer class="text-center">
         <div class="container d-flex justify-content-between align-items-center text-white">
             <p class="m-0">&copy; <span id="currentYear"></span> The Continent Ventures Foundation.</p>
-            <div class="socials">
-                <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
-            </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.getElementById("currentYear").textContent = new Date().getFullYear();
-
-        // Intersection Observer for the Slide-in effect
-        const observerOptions = {
-            threshold: 0.2
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.slide-in-right').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
