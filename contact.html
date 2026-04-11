@@ -6,6 +6,7 @@
     <title>Contact Us | The Continent Ventures Foundation</title>
     
     <meta name="description" content="Get in touch with The Continent Ventures Foundation. Reach out for partnerships, donations, or volunteer opportunities in Nairobi, Kenya.">
+    <link rel="canonical" href="https://thecontinentventures.github.io/thecontinentventures/contact.html" />
     
     <link rel="icon" type="image/jpeg" href="logo.jpg" sizes="any">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -34,16 +35,16 @@
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -2;
-            background-image: url('https://images.pexels.com/photos/3312664/pexels-photo-3312664.jpeg?auto=compress&cs=tinysrgb&w=1920');
+            background-image: url('https://images.pexels.com/photos/1125850/pexels-photo-1125850.jpeg?auto=compress&cs=tinysrgb&w=1920');
             background-size: cover;
             background-position: center;
-            filter: brightness(0.3);
+            filter: brightness(0.4);
         }
 
         .overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(10, 47, 16, 0.85) 0%, rgba(5, 5, 5, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(10, 47, 16, 0.8) 0%, rgba(5, 5, 5, 0.95) 100%);
             z-index: -1;
         }
 
@@ -80,15 +81,15 @@
             backdrop-filter: blur(30px);
             border: 1px solid var(--border-glow);
             border-radius: 40px;
-            padding: clamp(30px, 6vw, 60px);
+            padding: clamp(30px, 6vw, 80px);
             box-shadow: 0 40px 100px rgba(0,0,0,0.5);
         }
 
         h1.headline {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-size: clamp(2.2rem, 6vw, 3.8rem);
             line-height: 1.2;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .accent-text { color: var(--accent-gold); }
@@ -99,44 +100,39 @@
             border: 1px solid rgba(212, 175, 55, 0.2);
             color: white;
             padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-        }
-
-        .form-control:focus {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--accent-gold);
-            color: white;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
-        }
-
-        .form-label {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            color: var(--accent-gold);
-        }
-
-        /* --- CONTACT INFO BOXES --- */
-        .contact-info-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 25px;
-            border-radius: 20px;
+            border-radius: 15px;
             margin-bottom: 20px;
             transition: 0.3s;
         }
 
-        .contact-info-item:hover {
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.1);
             border-color: var(--accent-gold);
-            background: rgba(212, 175, 55, 0.05);
+            color: white;
+            box-shadow: none;
         }
 
-        .info-icon {
-            font-size: 1.5rem;
+        .form-label {
+            font-weight: 600;
             color: var(--accent-gold);
-            margin-bottom: 15px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- INFO BOXES --- */
+        .contact-info-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 30px;
+            border-radius: 25px;
+            height: 100%;
+            transition: 0.4s;
+        }
+
+        .contact-info-card:hover {
+            border-color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.05);
         }
 
         /* --- BUTTONS --- */
@@ -149,7 +145,6 @@
             text-transform: uppercase;
             border: 2px solid var(--accent-gold);
             transition: 0.3s;
-            width: 100%;
         }
 
         .btn-gold:hover {
@@ -159,8 +154,8 @@
 
         /* --- FOOTER --- */
         .footer-section {
-            margin-top: 4rem;
-            padding-top: 2rem;
+            margin-top: 5rem;
+            padding-top: 3rem;
             border-top: 1px solid rgba(212, 175, 55, 0.1);
         }
 
@@ -194,7 +189,7 @@
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link active" href="contact.html">Contact Us</a></li>
-                    <li class="nav-item ms-lg-3"><a class="btn-gold py-2 px-4 text-decoration-none" style="font-size: 0.75rem; border-radius: 30px;" href="donate.html">Donate</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-gold py-2 px-4" style="font-size: 0.75rem;" href="donate.html">Donate</a></li>
                 </ul>
             </div>
         </div>
@@ -209,74 +204,78 @@
                 <div class="col-xl-11">
                     
                     <div class="main-card">
+                        <div class="text-center mb-5">
+                            <span class="badge rounded-pill mb-3 px-3 py-2" style="border: 1px solid var(--accent-gold); color: var(--accent-gold);">GET IN TOUCH</span>
+                            <h1 class="headline">Let's Connect and <br><span class="accent-text">Create Change.</span></h1>
+                            <p class="lead opacity-75 mx-auto" style="max-width: 850px; font-weight: 300;">
+                                Whether you have a question about our projects, partnerships, or how to get involved, our team is ready to assist you.
+                            </p>
+                        </div>
+
                         <div class="row g-5">
                             <div class="col-lg-7">
-                                <span class="badge rounded-pill mb-3 px-3 py-2" style="border: 1px solid var(--accent-gold); color: var(--accent-gold);">GET IN TOUCH</span>
-                                <h1 class="headline">Let's Start a <br><span class="accent-text">Conversation.</span></h1>
-                                <p class="opacity-75 mb-5">Have questions about our projects or want to partner with us? Fill out the form below and our team will get back to you within 24 hours.</p>
-                                
-                                <form action="#" method="POST">
+                                <form action="https://formspree.io/f/your-endpoint" method="POST">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label class="form-label">Full Name</label>
-                                            <input type="text" class="form-control" placeholder="John Doe" required>
+                                            <div class="mb-3">
+                                                <label class="form-label">Your Name</label>
+                                                <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                                            </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <label class="form-label">Email Address</label>
-                                            <input type="email" class="form-control" placeholder="john@example.com" required>
+                                            <div class="mb-3">
+                                                <label class="form-label">Email Address</label>
+                                                <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                                            </div>
                                         </div>
                                     </div>
-                                    <label class="form-label">Subject</label>
-                                    <select class="form-control">
-                                        <option>General Inquiry</option>
-                                        <option>Partnership Proposal</option>
-                                        <option>Donation Question</option>
-                                        <option>Volunteer Opportunity</option>
-                                    </select>
-                                    <label class="form-label">Your Message</label>
-                                    <textarea class="form-control" rows="5" placeholder="How can we help you?" required></textarea>
-                                    
-                                    <button type="submit" class="btn btn-gold mt-3">Send Message</button>
+                                    <div class="mb-3">
+                                        <label class="form-label">Subject</label>
+                                        <input type="text" name="subject" class="form-control" placeholder="What is this regarding?" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label">Message</label>
+                                        <textarea name="message" class="form-control" rows="6" placeholder="Write your message here..." required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-gold w-100">Send Your Message</button>
                                 </form>
                             </div>
 
                             <div class="col-lg-5">
-                                <div class="ps-lg-4">
-                                    <div class="contact-info-item">
-                                        <div class="info-icon"><i class="fas fa-location-dot"></i></div>
-                                        <h5 class="fw-bold">Our Headquarters</h5>
-                                        <p class="opacity-75 mb-0">Nairobi, Kenya<br>P.O. Box 27475-00100 GPO</p>
-                                    </div>
-
-                                    <div class="contact-info-item">
-                                        <div class="info-icon"><i class="fas fa-envelope-open-text"></i></div>
-                                        <h5 class="fw-bold">Email Us</h5>
-                                        <p class="opacity-75 mb-0">info@thecontinentventures.org<br>support@thecontinentventures.org</p>
-                                    </div>
-
-                                    <div class="contact-info-item">
-                                        <div class="info-icon"><i class="fas fa-phone-volume"></i></div>
-                                        <h5 class="fw-bold">Call Us</h5>
-                                        <p class="opacity-75 mb-0">+254 700 000 000<br>Mon - Fri, 8am - 5pm EAT</p>
+                                <div class="d-flex flex-column h-100">
+                                    <div class="contact-info-card mb-4">
+                                        <h4 class="accent-text mb-3"><i class="fas fa-location-dot me-3"></i>Visit Us</h4>
+                                        <p class="opacity-75">Nairobi, Kenya<br>P.O. Box 27475-00100 GPO</p>
                                     </div>
                                     
-                                    <div class="mt-4 pt-2 text-center text-lg-start">
-                                        <h6 class="text-uppercase accent-text letter-spacing-2 mb-3" style="font-size: 0.7rem;">Follow Our Journey</h6>
-                                        <div class="social-links ms-0">
-                                            <a href="#" style="margin-left: 0;"><i class="fab fa-facebook-f"></i></a>
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                            <a href="#"><i class="fab fa-x-twitter"></i></a>
-                                        </div>
+                                    <div class="contact-info-card mb-4">
+                                        <h4 class="accent-text mb-3"><i class="fas fa-envelope-open-text me-3"></i>Email Us</h4>
+                                        <p class="opacity-75">info@thecontinentventures.org</p>
+                                    </div>
+
+                                    <div class="contact-info-card">
+                                        <h4 class="accent-text mb-3"><i class="fas fa-clock me-3"></i>Hours</h4>
+                                        <p class="opacity-75 mb-0">Monday — Friday: 9am - 5pm<br>Saturday & Sunday: Closed</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="footer-section text-center">
-                            <p class="small opacity-50 mb-0">&copy; <span id="autoYear"></span> The Continent Ventures Foundation. All Rights Reserved.</p>
+                            <div class="social-links mb-4">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                            <div class="address-text opacity-75 small">
+                                <p class="mb-0">Transforming lives through empathy and action across the African continent.</p>
+                            </div>
                         </div>
                     </div>
+
+                    <footer class="text-center mt-5">
+                        <p class="small opacity-50">&copy; <span id="autoYear"></span> The Continent Ventures Foundation. All Rights Reserved.</p>
+                    </footer>
 
                 </div>
             </div>
