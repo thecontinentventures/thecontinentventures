@@ -35,6 +35,20 @@ layout: null
             border-bottom: 1px solid var(--soft-gold);
             padding: 1rem 0;
         }
+        
+        .nav-link {
+            color: var(--white) !important;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold) !important;
+        }
 
         /* --- Header Section --- */
         .blog-header {
@@ -49,91 +63,56 @@ layout: null
             color: var(--accent-gold);
         }
 
-        /* --- Featured Post (Latest) --- */
-        .featured-post {
-            margin-bottom: 60px;
+        /* --- Full Story Layout --- */
+        .story-section {
+            max-width: 800px;
+            margin: 0 auto 100px;
+            padding: 0 20px;
         }
 
-        .featured-card {
-            background: var(--deep-forest);
-            border: 1px solid var(--accent-gold);
-            border-radius: 25px;
-            overflow: hidden;
-            display: flex;
-            flex-wrap: wrap;
-            transition: 0.3s;
-        }
-
-        .featured-img {
-            flex: 1;
-            min-width: 300px;
-            height: 400px;
-            background: url('assets/images/featured-blog.jpg') center/cover;
-        }
-
-        .featured-content {
-            flex: 1;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* --- Blog Grid --- */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
+        .story-item {
+            border-bottom: 1px solid var(--soft-gold);
+            padding-bottom: 80px;
             margin-bottom: 80px;
         }
 
-        .post-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--soft-gold);
-            border-radius: 20px;
-            padding: 30px;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-decoration: none;
-            color: white;
-            display: flex;
-            flex-direction: column;
+        .story-item:last-child {
+            border-bottom: none;
         }
 
-        .post-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-gold);
-            background: rgba(212, 175, 55, 0.08);
-        }
-
-        .category-tag {
+        .story-meta {
             color: var(--accent-gold);
-            font-size: 0.75rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 10px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
             display: block;
         }
 
-        .post-card h3 {
+        .story-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            line-height: 1.3;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 25px;
+            line-height: 1.2;
         }
 
-        .post-card p {
-            font-size: 0.95rem;
-            opacity: 0.7;
-            line-height: 1.6;
+        .story-image {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            margin-bottom: 35px;
+            border: 1px solid var(--soft-gold);
         }
 
-        .read-more {
-            margin-top: auto;
-            padding-top: 20px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            color: var(--accent-gold);
+        .story-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .story-content p {
+            margin-bottom: 20px;
         }
 
         /* --- Footer --- */
@@ -152,11 +131,16 @@ layout: null
             border-radius: 50px;
             text-decoration: none;
             display: inline-block;
+            transition: 0.3s;
+        }
+        
+        .btn-gold:hover {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            color: var(--primary-green);
         }
 
         @media (max-width: 768px) {
-            .featured-content { padding: 30px; }
-            .featured-img { height: 250px; }
+            .story-title { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -165,59 +149,59 @@ layout: null
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="assets/images/logo.jpg" alt="Logo" height="45" class="me-3 rounded-circle">
+                <img src="assets/images/logo.jpg" alt="Logo" height="45" class="me-3 rounded-circle border border-warning">
                 <span class="text-uppercase fw-bold">The <span style="color:var(--accent-gold)">Continent</span> Ventures</span>
             </a>
-            <div class="ms-auto">
-                <a href="story.html" class="text-white text-decoration-none small fw-bold me-4">OUR STORY</a>
-                <a href="donate.html" class="btn-gold py-1 px-3" style="font-size: 0.8rem;">DONATE</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="story.html">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn-gold py-1 px-3" href="donate.html">Donate</a></li>
+                </ul>
             </div>
         </div>
     </nav>
 
     <header class="blog-header">
         <div class="container">
-            <span class="text-uppercase fw-bold opacity-50" style="letter-spacing: 4px; font-size: 0.8rem;">Newsroom</span>
-            <h1>Latest From the Field</h1>
+            <span class="text-uppercase fw-bold opacity-50" style="letter-spacing: 4px; font-size: 0.8rem;">Journal</span>
+            <h1>Field Updates & Stories</h1>
         </div>
     </header>
 
-    <main class="container">
-        {% assign latest_post = site.posts.first %}
-        {% if latest_post %}
-        <section class="featured-post">
-            <a href="{{ latest_post.url | relative_url }}" class="text-decoration-none">
-                <div class="featured-card">
-                    <div class="featured-img" style="background-image: url('{{ latest_post.image | default: 'assets/images/hero-bg.jpg' }}');"></div>
-                    <div class="featured-content">
-                        <span class="category-tag">Featured Story</span>
-                        <h2 class="display-5 text-white fw-bold mb-3" style="font-family: 'Playfair Display', serif;">{{ latest_post.title }}</h2>
-                        <p class="opacity-75 mb-4">{{ latest_post.excerpt | strip_html | truncatewords: 30 }}</p>
-                        <span class="btn-gold align-self-start">Read Full Update</span>
-                    </div>
-                </div>
-            </a>
-        </section>
-        {% endif %}
-
-        <div class="blog-grid">
-            {% for post in site.posts offset:1 %}
-            <a href="{{ post.url | relative_url }}" class="post-card">
-                <span class="category-tag">Update • {{ post.date | date: "%b %d, %Y" }}</span>
-                <h3>{{ post.title }}</h3>
-                <p>{{ post.excerpt | strip_html | truncatewords: 18 }}</p>
-                <div class="read-more">
-                    READ STORY <i class="fas fa-chevron-right ms-2"></i>
-                </div>
-            </a>
-            {% endfor %}
-        </div>
+    <main class="story-section">
+        {% for post in site.posts %}
+        <article class="story-item">
+            <span class="story-meta">
+                {% if forloop.first %}Latest Update{% else %}Archive{% endif %} • {{ post.date | date: "%B %d, %Y" }}
+            </span>
+            <h2 class="story-title">{{ post.title }}</h2>
+            
+            {% if post.image %}
+            <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="story-image">
+            {% endif %}
+            
+            <div class="story-content">
+                {{ post.content }}
+            </div>
+            
+            <div class="mt-4">
+                <a href="https://twitter.com/intent/tweet?text={{ post.title }}&url={{ site.url }}{{ post.url }}" target="_blank" class="text-white opacity-50 me-3"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ post.url }}" target="_blank" class="text-white opacity-50"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </article>
+        {% endfor %}
     </main>
 
     <section class="container text-center py-5 mb-5">
         <div style="background: var(--soft-gold); padding: 50px; border-radius: 30px; border: 1px solid var(--accent-gold);">
-            <h2 style="font-family: 'Playfair Display', serif;" class="mb-3">Never Miss a Story</h2>
-            <p class="opacity-75 mb-4">Follow our journey as we empower the next generation of African leaders.</p>
+            <h2 style="font-family: 'Playfair Display', serif;" class="mb-3">Join the Journey</h2>
+            <p class="opacity-75 mb-4">Subscribe to receive these field updates directly in your inbox.</p>
             <a href="contact.html" class="btn-gold">Subscribe to Newsletter</a>
         </div>
     </section>
