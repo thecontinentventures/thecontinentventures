@@ -98,14 +98,20 @@
         .form-control {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(212, 175, 55, 0.2);
-            color: white;
+            color: #ffffff !important; /* Forces typed text to be white */
             padding: 15px;
             border-radius: 15px;
             margin-bottom: 20px;
             transition: 0.3s;
         }
 
-        /* Styling the dropdown options to be white */
+        /* Styling placeholders to be white */
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+            opacity: 1;
+        }
+
+        /* Styling the dropdown options and text */
         select.form-control option {
             background-color: var(--primary-green);
             color: white;
